@@ -1,0 +1,18 @@
+import * as React from 'react';
+import { ComponentExt } from '../../utils/reactExt';
+import * as styles from './index.scss';
+
+interface IProps {}
+
+class ${ComponentName} extends ComponentExt<IProps> {
+
+  state = {};
+
+  render() {
+    return (
+      <div>sample text</div>
+    );
+  }
+}
+
+export default ${ComponentName};
