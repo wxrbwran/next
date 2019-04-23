@@ -1,14 +1,26 @@
 // next.config.js
 const withTypescript = require('@zeit/next-typescript');
+const withSass = require('@zeit/next-sass')
+const path = require('path');
+
+console.log(path.resolve('./styles'))
 // const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 /**
  * next的配置文件，支持配置嵌套
  */
-module.exports = withTypescript({
-  webpack(config, options) {
-//  这里面还可以再配置哦 最后一个要return
-    // if (options.isServer) config.plugins.push(new ForkTsCheckerWebpackPlugin())
-    return config
+
+let config = withTypescript(withSass({
+  cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: "[local]_[hash:base64:6]",
+  },
+  sassLoaderOptions: {
+    data: '@import "_base.scss";',
+    includePaths: [path.resolve('./styles')]
   }
-});
+}));
+
+
+module.exports = config;
 

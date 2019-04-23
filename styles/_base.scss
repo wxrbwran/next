@@ -1,0 +1,15 @@
+@import './_var.scss';
+
+// -------- bourbon --------
+@import '~bourbon/core/_bourbon.scss';
+
+@mixin flex($direction:row, $wrap:nowrap, $main:center, $cross:center) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  justify-content: $main;
+  align-items: $cross;
+}
+
+%box-shadow {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
