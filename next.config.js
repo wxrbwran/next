@@ -2,8 +2,10 @@
 const withTypescript = require('@zeit/next-typescript');
 const withSass = require('@zeit/next-sass')
 const path = require('path');
+const constants = require('next/constants');
+console.log(path.resolve('./styles'));
+console.log('constants', constants);
 
-console.log(path.resolve('./styles'))
 // const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 /**
  * next的配置文件，支持配置嵌套
@@ -22,5 +24,13 @@ let config = withTypescript(withSass({
 }));
 
 
-module.exports = config;
 
+
+module.exports = (phase, { defaultConfig }) => {
+  console.log('phase', phase);
+  console.log('defaultConfig', defaultConfig);
+
+  return Object.assign({}, defaultConfig, config, {
+    pageExtensions: ['jsx', 'js', 'tsx', 'ts', 'scss', 'css']
+  });
+};
