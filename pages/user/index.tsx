@@ -1,6 +1,7 @@
 import React from 'react';
-import { ComponentExt } from '../utils/reactExt'
-import Layout from '../components/Layout';
+import { ComponentExt } from '../../utils/reactExt'
+import Layout from '../../components/Layout';
+import Link from 'next/link';
 
 interface IProps {
   userAgent: string;
@@ -16,10 +17,8 @@ const sleep = (time) => new Promise(resolve => {
 class App extends ComponentExt<IProps>{
 
   static async getInitialProps(props) {
-    const { req } = props;
     await sleep(800);
-    const userAgent = req ? req.headers['user-agent'] : '===';
-    return { userAgent };
+    return { userAgent: '===' };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -40,6 +39,7 @@ class App extends ComponentExt<IProps>{
       <Layout>
         <h1>我是用户页面</h1>
         <h3>{ this.state.userAgent }</h3>
+        <Link href="/user/list"><a>用户列表</a></Link>
       </Layout>
     );
   }
