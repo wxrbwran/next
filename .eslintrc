@@ -9,8 +9,8 @@
   },
   "extends": "airbnb",
   "plugins": [
-    "typescript",
-    "react"
+    "react",
+    "typescript"
   ],
   "env": {
     "es6": true,

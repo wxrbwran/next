@@ -6,7 +6,6 @@ interface IProps {
 }
 
 class Home extends React.Component<IProps> {
-
   componentDidMount() {
     console.log('loaded');
   }
@@ -15,14 +14,16 @@ class Home extends React.Component<IProps> {
     console.log('updated');
   }
 
-  render () {
+  render() {
     const { title, show } = this.props;
     return (
       <div>
         <span>{ title }</span>
-        { show && <div>
+        { show && (
+          <div>
           hi ~~~~
-        </div> }
+          </div>
+        ) }
       </div>
     );
   }
