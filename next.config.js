@@ -1,6 +1,6 @@
 // next.config.js
 const withTypescript = require('@zeit/next-typescript');
-const withSass = require('@zeit/next-sass')
+const withSass = require('@zeit/next-sass');
 const path = require('path');
 const constants = require('next/constants');
 // console.log(path.resolve('./styles'));
@@ -11,19 +11,17 @@ const constants = require('next/constants');
  * next的配置文件，支持配置嵌套
  */
 
-let config = withTypescript(withSass({
+const config = withTypescript(withSass({
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,
-    localIdentName: "[local]_[hash:base64:6]",
+    localIdentName: '[local]_[hash:base64:6]',
   },
   sassLoaderOptions: {
     data: '@import "_base.scss";',
-    includePaths: [path.resolve('./styles')]
-  }
+    includePaths: [path.resolve('./styles')],
+  },
 }));
-
-
 
 
 module.exports = (phase, { defaultConfig }) => {
@@ -31,6 +29,6 @@ module.exports = (phase, { defaultConfig }) => {
   // console.log('defaultConfig', defaultConfig);
 
   return Object.assign({}, defaultConfig, config, {
-    pageExtensions: ['jsx', 'js', 'tsx', 'ts', 'scss', 'css']
+    pageExtensions: ['jsx', 'js', 'tsx', 'ts', 'scss', 'css'],
   });
 };

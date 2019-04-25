@@ -6,6 +6,7 @@
   "author": "wuxiaoran",
   "license": "MIT",
   "scripts": {
+    "lint": "eslint --fix ./",
     "add": "add-component",
     "dev": "NODE_ENV=development node server.ts -p 3006",
     "start": "NODE_ENV=production node server.ts",
@@ -21,18 +22,30 @@
     "next": "^8.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "typescript": "^3.4.4"
+    "typescript": "^3.4.5"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-proposal-decorators": "^7.4.0",
     "@types/node": "^11.13.7",
+    "@typescript-eslint/eslint-plugin": "^1.7.0",
+    "@typescript-eslint/parser": "^1.7.0",
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.5.1",
     "customaddcomponents": "^1.0.35",
     "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-react-app": "^4.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-airbnb": "^1.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-typescript": "^0.14.0",
     "node-sass": "^4.11.0",
-    "postcss-loader": "^3.0.0"
+    "postcss-loader": "^3.0.0",
+    "typescript-eslint-parser": "^22.0.0"
   },
   "browserslist": [
     "> 1%",
