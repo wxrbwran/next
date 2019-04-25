@@ -13,8 +13,16 @@
     "preserveConstEnums": true,
     "removeComments": false,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
     "strict": false,
     "target": "esnext",
+    "rootDirs": ["./"],
+    "baseUrl": "./",
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"]
+    }
   },
   "exclude": [
     "node_modules"
