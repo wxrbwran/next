@@ -7,14 +7,17 @@ class MyMobxApp extends App {
   static async getInitialProps(appContext) {
     // Get or Create the store with `undefined` as initialState
     // This allows you to set a custom default initialState
+    const mobxStore = store
     // Provide the store to getInitialProps of pages
-    appContext.ctx.mobxStore = store
+    appContext.ctx.mobxStore = mobxStore
 
     let appProps = await App.getInitialProps(appContext)
+    console.log('appProps', appProps);
+    console.log('mobxStore', mobxStore);
 
     return {
       ...appProps,
-      initialMobxState: store
+      initialMobxState: mobxStore
     }
   }
 

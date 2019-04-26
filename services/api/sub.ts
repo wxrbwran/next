@@ -1,4 +1,4 @@
-import http from '@services/http';
+import http from '../http';
 
 export default {
   // 获取系统子管理员列表
