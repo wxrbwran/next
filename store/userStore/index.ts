@@ -1,6 +1,5 @@
 import { observable, action } from 'mobx';
-
-import { StoreExt } from '@utils/reactExt';
+import { StoreExt } from '../../utils/reactExt';
 
 export class UserStore extends StoreExt {
   /**

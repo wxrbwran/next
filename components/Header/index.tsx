@@ -1,13 +1,12 @@
 import * as React from 'react';
-import { ComponentExt } from '../../utils/reactExt';
 import Link from 'next/link';
+import { ComponentExt } from '../../utils/reactExt';
 import styles from './index.scss';
 
 interface IProps {}
 
 
 class Header extends ComponentExt<IProps> {
-
   state = {
     title: '',
   };
@@ -16,20 +15,19 @@ class Header extends ComponentExt<IProps> {
     if (nextProps.title !== prevState.title) {
       return {
         title: nextProps.title,
-      }
+      };
     }
     return null;
   }
 
   render() {
-
     const { title } = this.state;
 
     return (
       <div className={styles.header}>
-        <Link href={'/'}>
+        <Link href='/'>
           <div className={styles.logoContainer}>
-            <img className={styles.logo} src="/static/logo.png" alt="logo"/>
+            <img className={styles.logo} src='/static/logo.png' alt='logo' />
             <span className={styles.sysName}>各种系统</span>
           </div>
         </Link>

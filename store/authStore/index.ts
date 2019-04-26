@@ -1,6 +1,6 @@
 import { observable, action, runInAction } from 'mobx';
 
-import { StoreExt } from '@utils/reactExt';
+import { StoreExt } from '../../utils/reactExt';
 import { routerStore } from './../';
 
 export class AuthStore extends StoreExt {
