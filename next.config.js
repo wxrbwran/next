@@ -2,9 +2,6 @@
 const withTypescript = require('@zeit/next-typescript');
 const withSass = require('@zeit/next-sass');
 const path = require('path');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-
-const constants = require('next/constants');
 // console.log(path.resolve('./styles'));
 // console.log('constants', constants);
 
