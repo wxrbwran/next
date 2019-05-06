@@ -5,12 +5,7 @@ import * as store from '../store/index';
 // import "antd/dist/antd.less";
 import './index.scss';
 
-interface IProps {
-  pageProps: any;
-  Component: any;
-}
-
-class MyMobxApp extends App<IProps> {
+class MyMobxApp extends App {
   static async getInitialProps(appContext) {
     // console.log('appContext', appContext);
     // Get or Create the store with `undefined` as initialState

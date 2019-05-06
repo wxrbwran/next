@@ -3,10 +3,7 @@ import Link from 'next/link';
 import { ComponentExt } from '../../utils/reactExt';
 import styles from './index.scss';
 
-interface IProps {}
-
-
-class Header extends ComponentExt<IProps> {
+class Header extends ComponentExt {
   state = {
     title: '',
   };

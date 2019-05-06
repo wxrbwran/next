@@ -8,7 +8,7 @@ import { cloneDeep } from 'lodash';
  * @param {string} value
  * @param {number} [expiredays=365]
  */
-export function setCookie(name: string, value: string, expiredays = 365) {
+export function setCookie(name, value, expiredays = 365) {
   const exdate = new Date();
   exdate.setDate(exdate.getDate() + expiredays);
   document.cookie = `${name}=${escape(value)};expires=${exdate.toUTCString()}`;
@@ -21,7 +21,7 @@ export function setCookie(name: string, value: string, expiredays = 365) {
  * @param {string} name
  * @returns
  */
-export function getCookie(name: string) {
+export function getCookie(name) {
   if (document.cookie.length > 0) {
     let cStart = document.cookie.indexOf(`${name}=`);
     if (cStart !== -1) {
@@ -42,7 +42,7 @@ export function getCookie(name: string) {
  * @export
  * @param {string} name
  */
-export function clearCookie(name: string) {
+export function clearCookie(name) {
   setCookie(name, '');
 }
 
@@ -53,7 +53,7 @@ export function clearCookie(name: string) {
  * @param {string} name
  * @returns {string}
  */
-export function queryURL(name: string): string {
+export function queryURL(name) {
   const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`, 'i');
   const result = window.location.search.substr(1).match(reg);
   if (result !== null) {
@@ -72,7 +72,7 @@ export function queryURL(name: string): string {
  * @param {string} [keyAlias='key']
  * @returns {T}
  */
-export function queryArray<T>(array: any[], key: string, keyAlias = 'key'): T {
+export function queryArray(array, key, keyAlias = 'key') {
   if (!(array instanceof Array)) {
     return null;
   }
@@ -94,7 +94,7 @@ export function queryArray<T>(array: any[], key: string, keyAlias = 'key'): T {
  * @param {string} [children='children']
  * @returns {T[]}
  */
-export function arrayToTree<T>(array: any[], id = 'id', pid = 'pid', children = 'children'): T[] {
+export function arrayToTree(array, id = 'id', pid = 'pid', children = 'children') {
   const data = cloneDeep(array);
   const result = [];
   const hash = {};

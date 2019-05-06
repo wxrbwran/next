@@ -2,7 +2,7 @@ import http from '../http';
 
 export default {
   // 登录
-  login(data): Promise<any> {
+  login(data) {
     return http.post('auth/login', data || {});
   },
 };

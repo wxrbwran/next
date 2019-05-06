@@ -1,19 +1,19 @@
 import http from '../http';
 
 export default {
-  getUsers(data): Promise<any> {
+  getUsers(data) {
     return http.get('user', data || {});
   },
 
-  createUser(data): Promise<any> {
+  createUser(data) {
     return http.post('user/create', data || {});
   },
 
-  modifyUser(data): Promise<any> {
+  modifyUser(data) {
     return http.post('user/modify', data || {});
   },
 
-  deleteUser(data): Promise<any> {
+  deleteUser(data) {
     return http.post('user/delete', data || {});
   },
 };

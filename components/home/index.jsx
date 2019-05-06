@@ -1,16 +1,11 @@
 import React from 'react';
 
-interface IProps {
-  title: string;
-  show: boolean;
-}
-
-class Home extends React.Component<IProps> {
+class Home extends React.Component {
   componentDidMount() {
     console.log('loaded');
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     console.log('updated');
   }
 

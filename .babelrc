@@ -1,14 +1,13 @@
 {
   "presets": [
-    "next/babel",
-    "@zeit/next-typescript/babel"
+    "next/babel"
   ],
   "plugins": [
     ["import",
       {
         "libraryName": "antd",
         "libraryDirectory": "lib",
-        "style": false
+        "style": true
       }, "ant"],
     ["@babel/plugin-proposal-decorators", {
       "decoratorsBeforeExport": false

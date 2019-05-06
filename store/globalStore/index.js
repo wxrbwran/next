@@ -9,7 +9,7 @@ export class GlobalStore extends StoreExt {
    * @memberof GlobalStore
    */
   @observable
-  isShowHospitalFilter: boolean = false;
+  isShowHospitalFilter = false;
 
   @action
   toggleHospitalFilter = () => {

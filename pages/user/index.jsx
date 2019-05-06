@@ -3,10 +3,6 @@ import { ComponentExt } from '../../utils/reactExt'
 import Layout from '../../components/Layout';
 import Link from 'next/link';
 
-interface IProps {
-  userAgent: string;
-}
-
 const sleep = (time) => new Promise(resolve => {
   setTimeout(() => {
     resolve();
@@ -14,7 +10,7 @@ const sleep = (time) => new Promise(resolve => {
 });
 
 
-class App extends ComponentExt<IProps>{
+class App extends ComponentExt{
 
   static async getInitialProps(props) {
     await sleep(800);

@@ -11,10 +11,10 @@ export class AuthStore extends StoreExt {
    * @memberof AuthStore
    */
   @observable
-  userInfo: IAuthStore.UserInfo = null;
+  userInfo = null;
 
   @action
-  login = async (params: IAuthStore.LoginParams): Promise<any> => {
+  login = async (params) => {
     try {
       const res = await this.api.auth.login(params);
       console.log(res);
@@ -39,8 +39,7 @@ export class AuthStore extends StoreExt {
    * @memberof AuthStore
    */
   @action
-  initUserInfo = (): IAuthStore.UserInfo => {
-  }
+  initUserInfo = () => {}
 }
 
 export default new AuthStore();

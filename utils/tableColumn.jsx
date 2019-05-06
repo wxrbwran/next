@@ -103,7 +103,7 @@ const doctorColumns = (self, role) => {
   ];
 };
 
-const nurseColumns = (self:React.ReactInstance, role: string) => {
+const nurseColumns = (self, role) => {
   return [
     avatar, name(role), sex,
     {

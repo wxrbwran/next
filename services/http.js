@@ -1,25 +1,6 @@
-import axios, { AxiosRequestConfig as _AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import * as qs from 'qs';
 import { message } from 'antd';
-
-
-export interface AxiosRequestConfig extends _AxiosRequestConfig {
-  startTime?: Date;
-}
-
-export interface HttpResquest {
-  get?(url, data, baseUrl?): Promise<any>;
-  post?(url, data, baseUrl?): Promise<any>;
-  patch?(url, data, baseUrl?): Promise<any>;
-  delete?(url, data, baseUrl?): Promise<any>;
-  put?(url, data, baseUrl?): Promise<any>;
-}
-
-enum HTTPERROR {
-  LOGICERROR,
-  TIMEOUTERROR,
-  NETWORKERROR,
-}
 
 // const TOKENERROR = [401, 402, 403];
 
@@ -28,7 +9,7 @@ const DEFAULTCONFIG = {
   timeout: 5000,
 };
 
-const http: HttpResquest = {};
+const http = {};
 const methods = ['get', 'post', 'patch', 'put', 'delete'];
 
 // let authTimer: number = null;
@@ -37,8 +18,8 @@ const isSuccess = res => res.code === 0;
 const resFormat = res => res.response || res.data || {};
 
 methods.forEach((v) => {
-  http[v] = (url, data, baseUrl?) => {
-    const axiosConfig: AxiosRequestConfig = {
+  http[v] = (url, data, baseUrl) => {
+    const axiosConfig = {
       url,
       method: v,
       baseURL: baseUrl || DEFAULTCONFIG.baseURL,

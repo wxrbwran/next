@@ -9,7 +9,7 @@ export class UserStore extends StoreExt {
    * @memberof UserStore
    */
   @observable
-  user: any = {};
+  user = {};
 
   /**
    * 加载用户列表

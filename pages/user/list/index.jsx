@@ -2,9 +2,7 @@ import * as React from 'react';
 import { ComponentExt } from '../../../utils/reactExt';
 import Link from "next/link";
 
-interface IProps {}
-
-class UserList extends ComponentExt<IProps> {
+class UserList extends ComponentExt {
 
   state = {};
 

@@ -2,9 +2,7 @@ import * as React from 'react';
 import { ComponentExt } from '../../../utils/reactExt';
 // import * as styles from './index.scss';
 
-interface IProps {}
-
-class UserDetail extends ComponentExt<IProps> {
+class UserDetail extends ComponentExt {
 
   state = {};
 
