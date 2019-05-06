@@ -4,6 +4,12 @@
     "@zeit/next-typescript/babel"
   ],
   "plugins": [
+    ["import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "lib",
+        "style": false
+      }, "ant"],
     ["@babel/plugin-proposal-decorators", {
       "decoratorsBeforeExport": false
     }],

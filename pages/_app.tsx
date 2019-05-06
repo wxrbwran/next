@@ -2,6 +2,8 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import { Provider } from 'mobx-react';
 import * as store from '../store/index';
+// import "antd/dist/antd.less";
+import './index.scss';
 
 interface IProps {
   pageProps: any;
