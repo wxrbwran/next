@@ -24,9 +24,9 @@ class Header extends ComponentExt<IProps> {
 
     return (
       <div className={styles.header}>
-        <Link href='/'>
+        <Link href="/">
           <div className={styles.logoContainer}>
-            <img className={styles.logo} src='/static/logo.png' alt='logo' />
+            <img className={styles.logo} src="/static/logo.png" alt="logo" />
             <span className={styles.sysName}>各种系统</span>
           </div>
         </Link>

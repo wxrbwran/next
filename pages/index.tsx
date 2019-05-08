@@ -10,12 +10,12 @@ function App() {
   return (
     <Layout>
       <h1>我是首页</h1>
-      <Button type='primary' onClick={() => setShow(!show)}>
+      <Button type="primary" onClick={() => setShow(!show)}>
         点击
       </Button>
-      <Home title='111' show={show} />
-      <Link href='/user'>
-        <a href='/user'>用户</a>
+      <Home title="111" show={show} />
+      <Link href="/user">
+        <a href="/user">用户</a>
       </Link>
       <div className={styles.content}>
         <div>1</div>
