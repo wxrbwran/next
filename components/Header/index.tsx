@@ -5,7 +5,6 @@ import styles from './index.scss';
 
 interface IProps {}
 
-
 class Header extends ComponentExt<IProps> {
   state = {
     title: '',
@@ -31,7 +30,7 @@ class Header extends ComponentExt<IProps> {
             <span className={styles.sysName}>各种系统</span>
           </div>
         </Link>
-        <h3>{ title }</h3>
+        <h3>{title}</h3>
       </div>
     );
   }

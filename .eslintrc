@@ -1,5 +1,5 @@
 {
-  "parser": "typescript-eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018,
     "sourceType": "module",
@@ -7,11 +7,10 @@
       "jsx": true
     }
   },
-  "extends": "airbnb",
-  "plugins": [
-    "react",
-    "typescript"
+  "extends": [
+    "airbnb"
   ],
+  "plugins": ["react"],
   "env": {
     "es6": true,
     "browser": true,
@@ -20,14 +19,15 @@
   "rules":{
     "no-console":0,
     "indent": [
-      2,
-      2,
-      {
+      2, 2, {
         "SwitchCase": 1,
         "ObjectExpression": 1
       }
     ],
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/jsx-uses-vars": [2],
+    "import/no-unresolved": 0,
     "semi": [2, "always"],
     "linebreak-style": 0,
     "consistent-return": 0,
@@ -42,11 +42,10 @@
     "react/sort-comp": 1,
     "react/no-string-refs": 0,
     "react/prefer-stateless-function": 0,
-    "react/prop-types": 2,
     "react/require-default-props": [2, { "forbidDefaultForRequired": true }],
     "jsx-a11y/no-static-element-interactions": 0,
     "keyword-spacing": [2, { "before": true }],
-    "eqeqeq": [2, "always"],
+    "no-param-reassign": 0,
     "space-infix-ops": [2, {"int32Hint": false}],
     "comma-spacing": [2, { "before": false, "after": true }],
     "block-spacing": [2, "always"],

@@ -1,7 +1,7 @@
 import { observable, action, runInAction } from 'mobx';
 
 import { StoreExt } from '../../utils/reactExt';
-import { routerStore } from './../';
+import { routerStore } from '..';
 
 export class AuthStore extends StoreExt {
   /**
@@ -26,12 +26,12 @@ export class AuthStore extends StoreExt {
       console.error(err);
       routerStore.replace('/');
     }
-  }
+  };
 
   @action
   logout = () => {
     routerStore.replace('/login');
-  }
+  };
 
   /**
    * 初始化用户信息
@@ -39,8 +39,7 @@ export class AuthStore extends StoreExt {
    * @memberof AuthStore
    */
   @action
-  initUserInfo = (): IAuthStore.UserInfo => {
-  }
+  initUserInfo = (): IAuthStore.UserInfo => {};
 }
 
 export default new AuthStore();

@@ -1,11 +1,10 @@
-import axios, { AxiosRequestConfig as _AxiosRequestConfig } from 'axios';
+/*eslint-disable*/
+
+
+import axios, { AxiosRequestConfig } from 'axios';
 import * as qs from 'qs';
 import { message } from 'antd';
 
-
-export interface AxiosRequestConfig extends _AxiosRequestConfig {
-  startTime?: Date;
-}
 
 export interface HttpResquest {
   get?(url, data, baseUrl?): Promise<any>;
@@ -42,7 +41,7 @@ methods.forEach((v) => {
       url,
       method: v,
       baseURL: baseUrl || DEFAULTCONFIG.baseURL,
-      headers: { Authorization: `Bearer ` },
+      headers: { Authorization: 'Bearer ' },
     };
     const instance = axios.create(DEFAULTCONFIG);
     // Add a request interceptor
@@ -59,21 +58,19 @@ methods.forEach((v) => {
     // Add a response interceptor
     instance.interceptors.response.use(
       (response) => {
-        let rdata = null;
+        let rdata = response.data;
         // console.log('response', response);
-        if (typeof response.data === 'object' && !isNaN(response.data.length)) {
+        if (typeof response.data === 'object' && !Number.isNaN(response.data.length)) {
           rdata = response.data[0];
-        } else {
-          rdata = response.data;
         }
         if (!isSuccess(rdata)) {
-          const _err = {
+          const err = {
             msg: rdata.msg,
             errCode: rdata.errCode,
             type: HTTPERROR[HTTPERROR.LOGICERROR],
             config: response.config,
           };
-          return Promise.reject(_err);
+          return Promise.reject(err);
         }
         return resFormat(rdata);
       },
@@ -87,14 +84,14 @@ methods.forEach((v) => {
         //   },                            300);
         //   return;
         // }
-        const _err = {
+        const err = {
           msg: error.response.statusText || error.message || '网络故障',
           type: /^timeout of/.test(error.message)
             ? HTTPERROR[HTTPERROR.TIMEOUTERROR]
             : HTTPERROR[HTTPERROR.NETWORKERROR],
           config: error.config,
         };
-        return Promise.reject(_err);
+        return Promise.reject(err);
       },
     );
     if (v === 'get') {
@@ -104,7 +101,6 @@ methods.forEach((v) => {
     } else {
       axiosConfig.data = qs.stringify(data);
     }
-    axiosConfig.startTime = new Date();
     return instance
       .request(axiosConfig)
       .then(res => res)
@@ -120,7 +116,6 @@ methods.forEach((v) => {
           err,
           stack: err.msg || err.stack || '',
         });
-
       });
   };
 });

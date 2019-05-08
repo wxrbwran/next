@@ -2,7 +2,6 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import { Provider } from 'mobx-react';
 import * as store from '../store/index';
-// import "antd/dist/antd.less";
 import './index.scss';
 
 interface IProps {
@@ -19,22 +18,20 @@ class MyMobxApp extends App<IProps> {
     // Provide the store to getInitialProps of pages
     appContext.ctx.mobxStore = mobxStore;
 
-    let appProps = await App.getInitialProps(appContext);
+    const appProps = await App.getInitialProps(appContext);
     // console.log('appProps', appProps);
     // console.log('mobxStore', mobxStore);
 
     return {
       ...appProps,
-      initialMobxState: mobxStore,
+      mobxStore,
     };
   }
 
   constructor(props) {
     super(props);
     const isServer = !process.browser;
-    this.mobxStore = isServer
-      ? props.initialMobxState
-      : store;
+    this.mobxStore = isServer ? props.mobxStore : store;
   }
 
   render() {
@@ -46,7 +43,7 @@ class MyMobxApp extends App<IProps> {
           <Component {...pageProps} />
         </Provider>
       </Container>
-    )
+    );
   }
 }
-export default MyMobxApp
+export default MyMobxApp;

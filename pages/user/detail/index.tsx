@@ -5,7 +5,6 @@ import { ComponentExt } from '../../../utils/reactExt';
 interface IProps {}
 
 class UserDetail extends ComponentExt<IProps> {
-
   state = {};
 
   render() {

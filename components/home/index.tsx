@@ -18,12 +18,8 @@ class Home extends React.Component<IProps> {
     const { title, show } = this.props;
     return (
       <div>
-        <span>{ title }</span>
-        { show && (
-          <div>
-          hi ~~~~
-          </div>
-        ) }
+        <span>{title}</span>
+        {show && <div>hi ~~~~</div>}
       </div>
     );
   }

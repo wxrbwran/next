@@ -17,7 +17,7 @@ export class UserStore extends StoreExt {
    * @memberof UserStore
    */
   @action
-  getUsers = async () => {}
+  getUsers = async () => {};
 }
 
 export default new UserStore();
