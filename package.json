@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint --fix ./",
     "add": "add-component",
-    "dev": "NODE_ENV=development node server.ts -p 3006",
+    "dev": "NODE_ENV=development node server.js -p 3006",
     "start": "NODE_ENV=production node server.ts",
     "build": "next build",
     "export": "npm run build && next export"
@@ -34,6 +34,7 @@
     "@zeit/next-less": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.5.1",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-import": "^1.11.0",
     "customaddcomponents": "^1.0.35",
     "cz-conventional-changelog": "^2.1.0",
