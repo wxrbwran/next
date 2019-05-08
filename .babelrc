@@ -7,8 +7,7 @@
     ["import",
       {
         "libraryName": "antd",
-        "libraryDirectory": "lib",
-        "style": false
+        "style": true
       }, "ant"],
     ["@babel/plugin-proposal-decorators", {
       "decoratorsBeforeExport": false
