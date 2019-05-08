@@ -1,6 +1,5 @@
 const path = require('path')
 const withTypescript = require('@zeit/next-typescript')
-const theme = require('./theme');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config')
 const lessToJS = require('less-vars-to-js')
 const fs = require('fs')
@@ -14,7 +13,7 @@ if (typeof require !== 'undefined') {
   require.extensions['.less'] = file => {};
 }
 
-module.exports = {
+module.exports = withTypescript({
   pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
   webpack(config, options) {
     if (!options.defaultLoaders) {
@@ -22,14 +21,14 @@ module.exports = {
         'This plugin is not compatible with Next.js versions below 5.0.0 https://err.sh/next-plugins/upgrade'
       );
     }
-    const nextConfig = {};
     const { dir, dev, defaultLoaders, isServer } = options;
+    // const nextConfig = {};
     const {
       cssModules,
       cssLoaderOptions,
       postcssLoaderOptions,
       lessLoaderOptions = {},
-    } = nextConfig;
+    } = {};
 
     console.log('options.defaultLoaders', defaultLoaders)
 
@@ -102,30 +101,30 @@ module.exports = {
       }),
     })
 
-    if (!defaultLoaders.hotSelfAccept) {
-      if (dev && !isServer) {
-        config.module.rules.push({
-          test: /\.(ts|tsx)$/,
-          loader: 'hot-self-accept-loader',
-          include: [path.join(dir, 'pages')],
-          options: {
-            extensions: /\.(ts|tsx)$/
-          }
-        })
-      }
-    }
+    // if (!defaultLoaders.hotSelfAccept) {
+    //   if (dev && !isServer) {
+    //     config.module.rules.push({
+    //       test: /\.(ts|tsx)$/,
+    //       loader: 'hot-self-accept-loader',
+    //       include: [path.join(dir, 'pages')],
+    //       options: {
+    //         extensions: /\.(ts|tsx)$/
+    //       }
+    //     })
+    //   }
+    // }
+    //
+    // config.module.rules.push({
+    //   test: /\.(ts|tsx)$/,
+    //   include: [dir],
+    //   exclude: /node_modules/,
+    //   use: defaultLoaders.babel,
+    // });
 
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      include: [dir],
-      exclude: /node_modules/,
-      use: defaultLoaders.babel,
-    });
+    // if (typeof nextConfig.webpack === 'function') {
+    //   return nextConfig.webpack(config, options)
+    // }
 
-    if (typeof nextConfig.webpack === 'function') {
-      return nextConfig.webpack(config, options)
-    }
-
-    return config
+    return config;
   },
-}
+})
