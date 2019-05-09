@@ -3,7 +3,6 @@ const withTypescript = require('@zeit/next-typescript');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config');
 const lessToJS = require('less-vars-to-js');
 const fs = require('fs');
-
 const themeVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8'),
 );
